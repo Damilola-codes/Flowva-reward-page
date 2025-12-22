@@ -1,3 +1,16 @@
+/* Critical responsive base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in iOS */
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
@@ -13,17 +26,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html,
 body,
 #root {
   width: 100%;
+  max-width: 100vw;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -35,11 +44,16 @@ body {
     radial-gradient(circle at 80% 0%, #e0f2fe 0, transparent 35%),
     #f7f8fb;
   -webkit-tap-highlight-color: transparent;
+  /* Improve iOS Safari touch behavior */
+  -webkit-touch-callout: none;
+  /* Better text selection on mobile */
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 /* Improve touch targets on mobile */
 @media (max-width: 768px) {
-  button, a {
+  button, a, input[type="button"], input[type="submit"] {
     min-height: 44px;
     min-width: 44px;
   }
@@ -50,11 +64,24 @@ body {
   :root {
     font-size: 15px;
   }
+  
+  /* Prevent horizontal scroll on small screens */
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
 }
 
 @media (max-width: 360px) {
   :root {
     font-size: 14px;
+  }
+}
+
+/* Better mobile input handling */
+@media (max-width: 640px) {
+  input, textarea, select {
+    font-size: 16px !important; /* Prevents iOS zoom */
   }
 }
 

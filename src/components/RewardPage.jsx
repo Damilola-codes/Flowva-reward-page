@@ -258,7 +258,7 @@ function RewardPage() {
               <FaTrophy size={14} /> {totalPoints} pts
             </span>
             <span className="chip">
-              <FaClock size={14} /> 5-day streak
+              <FaClock size={14} /> {currentStreak}-day streak
             </span>
             <span className="chip soft">Beta access</span>
           </div>

@@ -9,7 +9,14 @@
     #f7f8fb;
   position: relative;
   overflow: hidden;
+  padding: clamp(16px, 4vw, 24px);
   font-family: system-ui, -apple-system, sans-serif;
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 12px;
+  }
 }
 
 .auth-background {
@@ -144,12 +151,21 @@
 }
 
 .form-group input {
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 1vw + 0.8rem, 1rem);
+  min-height: 50px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   font-family: inherit;
+}
+
+@media (max-width: 480px) {
+  .form-group input {
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: 13px 14px;
+    min-height: 48px;
+  }
 }
 
 .form-group input:focus {
@@ -182,12 +198,13 @@
 }
 
 .auth-button {
-  padding: 14px;
+  padding: 16px;
+  min-height: 54px;
   background: linear-gradient(120deg, #7c3aed 0%, #2563eb 100%);
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 1vw + 0.8rem, 1.05rem);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -195,9 +212,25 @@
   box-shadow: 0 12px 30px rgba(124, 58, 237, 0.35);
 }
 
-.auth-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+@media (hover: hover) {
+  .auth-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .auth-button:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-button {
+    font-size: 1rem;
+    padding: 14px;
+    min-height: 50px;
+  }
 }
 
 .auth-button:active:not(:disabled) {
