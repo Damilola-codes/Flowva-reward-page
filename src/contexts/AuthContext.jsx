@@ -54,7 +54,17 @@ export const AuthProvider = ({ children }) => {
   const signOut = async () => {
     if (!hasSupabaseConfig || !supabase)
       return { error: new Error('Supabase not configured') }
-    const { error } = await supabase.auth.signOut()
+    
+    // Use 'local' scope to avoid 403 errors when session is invalid
+    const { error } = await supabase.auth.signOut({ scope: 'local' })
+    
+    // Clear local state even if signOut fails (e.g., expired token)
+    if (error) {
+      console.warn('SignOut error (clearing local state anyway):', error.message)
+      setUser(null)
+      setSession(null)
+    }
+    
     return { error }
   }
 
