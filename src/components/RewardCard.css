@@ -1,0 +1,424 @@
+/* Reward Card Styles */
+.reward-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.reward-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1);
+}
+
+.reward-card.completed {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.04), rgba(37, 99, 235, 0.05));
+}
+
+.reward-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.reward-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, rgba(124, 58, 237, 0.12), rgba(37, 99, 235, 0.1));
+  display: grid;
+  place-items: center;
+  color: #6b21a8;
+  font-size: 1.4rem;
+}
+
+.reward-actions {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.action-button {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #475569;
+  transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
+  border-color: #7c3aed;
+  color: #6b21a8;
+}
+
+.check-button.completed {
+  background: linear-gradient(120deg, #7c3aed 0%, #2563eb 100%);
+  border-color: transparent;
+  color: #fff;
+}
+
+.delete-button:hover {
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+
+.reward-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  align-items: center;
+}
+
+.reward-title {
+  margin: 0;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.reward-card.completed .reward-title {
+  text-decoration: line-through;
+  opacity: 0.75;
+}
+
+.reward-description {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.reward-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+
+.reward-points {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.points-label {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.points-value {
+  color: #6b21a8;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.reward-date {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.completed-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ecfeff;
+  color: #0ea5e9;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .reward-card {
+    padding: 14px;
+    gap: 10px;
+  }
+  
+  .reward-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+  
+  .reward-title {
+    font-size: 0.95rem;
+  }
+  
+  .reward-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .reward-card {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .reward-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .reward-card-header {
+    margin-bottom: 8px;
+  }
+
+  .action-button {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+
+  .reward-title {
+    font-size: 0.9rem;
+  }
+
+  .reward-description {
+    font-size: 0.85rem;
+  }
+
+  .reward-footer {
+    padding-top: 8px;
+    margin-top: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .points-value {
+    font-size: 1.1rem;
+  }
+
+  .reward-date {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reward-card {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .reward-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .action-button {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .reward-title {
+    font-size: 0.85rem;
+  }
+
+  .reward-description {
+    font-size: 0.8rem;
+  }
+
+  .points-value {
+    font-size: 0.95rem;
+  }
+
+  .completed-badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .reward-card {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .reward-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .action-button {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+
+  .reward-title {
+    font-size: 0.8rem;
+  }
+
+  .reward-description {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .points-label {
+    font-size: 0.7rem;
+  }
+
+  .points-value {
+    font-size: 0.9rem;
+  }
+
+  .reward-date {
+    font-size: 0.7rem;
+  }
+}
+
+/* ================================================
+   ENHANCED REWARD CARD RESPONSIVE IMPROVEMENTS
+   ================================================ */
+
+/* Smooth transitions */
+.reward-card,
+.reward-action {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better hover states on desktop */
+@media (hover: hover) and (pointer: fine) {
+  .reward-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
+  }
+  
+  .reward-action:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Touch feedback on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .reward-card:active {
+    transform: scale(0.99);
+  }
+  
+  .reward-action:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Better focus states */
+.reward-action:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.4);
+  outline-offset: 2px;
+}
+
+/* Enhanced tablet support (700px - 900px) */
+@media (min-width: 700px) and (max-width: 900px) {
+  .reward-card {
+    padding: 18px;
+  }
+  
+  .reward-icon {
+    font-size: 1.6rem;
+  }
+  
+  .reward-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* Better medium phone support (400px - 540px) */
+@media (min-width: 400px) and (max-width: 540px) {
+  .reward-card {
+    padding: 14px 12px;
+  }
+  
+  .reward-icon {
+    font-size: 1.4rem;
+  }
+}
+
+/* Improve icon color contrast */
+.reward-icon {
+  filter: brightness(1.1);
+}
+
+/* Better points badge */
+.points-value {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.points-label {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Optimize action buttons spacing */
+.reward-actions {
+  gap: clamp(8px, 2vw, 12px);
+}
+
+/* Better completed badge styling */
+.reward-card.completed {
+  opacity: 0.85;
+}
+
+.reward-card.completed .reward-icon {
+  opacity: 0.7;
+}
+
+/* Improve date formatting */
+.reward-date {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prevent text overflow */
+.reward-title,
+.reward-description {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Better card grid spacing on larger tablets */
+@media (min-width: 900px) and (max-width: 1024px) {
+  .rewards-grid .reward-card {
+    padding: 18px 16px;
+  }
+}
+
+/* Optimize for print */
+@media print {
+  .reward-actions {
+    display: none;
+  }
+  
+  .reward-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

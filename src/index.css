@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #0f172a;
+  background-color: #f7f8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 20% 20%, #eef2ff 0, #f7f8fb 35%),
+    radial-gradient(circle at 80% 0%, #e0f2fe 0, transparent 35%),
+    #f7f8fb;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Optimize font size for mobile readability */
+@media (max-width: 480px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+a {
+  font-weight: 600;
+  color: #5b21b6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #7c3aed;
+}
+
+button {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button:focus,
+button:focus-visible,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid rgba(124, 58, 237, 0.25);
+  outline-offset: 2px;
+}

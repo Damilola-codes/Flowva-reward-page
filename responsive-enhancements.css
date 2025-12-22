@@ -1,0 +1,356 @@
+/* ================================================
+   ENHANCED RESPONSIVE IMPROVEMENTS
+   ================================================
+   Add these styles to improve responsiveness further.
+   Copy and paste at the end of RewardPage.css
+================================================ */
+
+/* Smooth transitions for all interactive elements */
+button,
+.tab-pill,
+.pill.subtle,
+.redeem-btn,
+.ghost-btn,
+.logout-button,
+.primary-btn {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better focus states for accessibility */
+button:focus-visible,
+.tab-pill:focus-visible,
+.pill:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.4);
+  outline-offset: 3px;
+}
+
+/* Improve touch feedback on mobile */
+@media (hover: none) and (pointer: coarse) {
+  button:active,
+  .tab-pill:active,
+  .redeem-btn:active {
+    transform: scale(0.97);
+  }
+}
+
+/* Enhanced tablet landscape (900px - 1024px) */
+@media (min-width: 900px) and (max-width: 1024px) {
+  .stat-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .redeem-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  
+  .hero-copy h1 {
+    font-size: 2.1rem;
+  }
+}
+
+/* Enhanced tablet portrait (700px - 899px) */
+@media (min-width: 700px) and (max-width: 899px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .redeem-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* Enhanced large phone (540px - 699px) */
+@media (min-width: 540px) and (max-width: 699px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  
+  .redeem-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  
+  .redeem-card {
+    padding: 16px;
+  }
+  
+  .redeem-icon {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* Improve card hover states on desktop */
+@media (hover: hover) and (pointer: fine) {
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  }
+  
+  .redeem-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+  }
+  
+  .refer-card:hover,
+  .streak-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  }
+}
+
+/* Prevent text selection on interactive elements */
+.tab-pill,
+.pill,
+button {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Better scrollbar styling */
+.reward-page::-webkit-scrollbar {
+  width: 10px;
+}
+
+.reward-page::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.reward-page::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+.reward-page::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Improve modal responsiveness */
+@media (min-width: 641px) and (max-width: 900px) {
+  .modal-content {
+    width: 85vw;
+    max-width: 600px;
+    padding: 24px;
+  }
+}
+
+/* Better form input styling on mobile */
+@media (max-width: 640px) {
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px !important; /* Prevents iOS zoom */
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+/* Improve icon selector on different screens */
+@media (min-width: 481px) and (max-width: 640px) {
+  .icon-selector {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-selector {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Better loading states */
+.spinner {
+  animation: spin 0.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Improve week dots spacing */
+.week-dots {
+  gap: clamp(6px, 1.5vw, 10px);
+}
+
+.dot {
+  width: clamp(8px, 2vw, 12px);
+  height: clamp(8px, 2vw, 12px);
+}
+
+/* Better alert responsiveness */
+.alert {
+  font-size: clamp(0.85rem, 1vw + 0.7rem, 0.95rem);
+  padding: clamp(10px, 2vw, 14px);
+}
+
+/* Improve section spacing */
+@media (max-width: 640px) {
+  .section-top {
+    margin-bottom: 16px;
+  }
+  
+  .earn-grid,
+  .rewards-grid {
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-top {
+    margin-bottom: 14px;
+  }
+  
+  .earn-grid,
+  .rewards-grid {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Better link box responsiveness */
+@media (max-width: 480px) {
+  .link-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .link-text {
+    word-break: break-all;
+    font-size: 0.8rem;
+  }
+}
+
+/* Improve hero chips wrapping */
+@media (max-width: 540px) {
+  .hero-chips {
+    gap: 8px;
+    margin-top: 16px;
+  }
+  
+  .chip {
+    flex-shrink: 0;
+  }
+}
+
+/* Better panel-right button stacking */
+@media (max-width: 640px) {
+  .panel-right button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 641px) {
+  .panel-right {
+    align-items: flex-end;
+    min-width: fit-content;
+  }
+}
+
+/* Optimize section headers */
+.section-header h2 {
+  font-size: clamp(1.1rem, 2vw + 0.8rem, 1.4rem);
+  font-weight: 700;
+}
+
+/* Better cost badge visibility */
+.cost {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Improve status badge contrast */
+.status-badge {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Better modal overlay on mobile */
+@media (max-width: 640px) {
+  .modal-overlay {
+    padding: 20px;
+  }
+}
+
+/* Improve card-tag positioning across devices */
+@media (min-width: 641px) {
+  .card-tag {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    top: -10px;
+    right: 12px;
+  }
+}
+
+/* Better footer responsiveness */
+.reward-footer {
+  text-align: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.reward-footer:hover {
+  opacity: 1;
+}
+
+/* Improve overall page performance */
+.reward-page * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better grid gap consistency */
+@media (min-width: 1025px) {
+  .stat-grid {
+    gap: 20px;
+  }
+  
+  .redeem-grid {
+    gap: 20px;
+  }
+}
+
+/* Optimize for very large screens */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1280px;
+  }
+  
+  .hero-copy h1 {
+    font-size: 2.6rem;
+  }
+  
+  .lede {
+    font-size: 1.1rem;
+  }
+}
+
+/* Better print styles */
+@media print {
+  .logout-button,
+  .tab-bar,
+  .hero-chips,
+  .ambient {
+    display: none;
+  }
+  
+  .reward-page {
+    background: white;
+  }
+}
