@@ -143,6 +143,8 @@ function RewardPage() {
   const [showCongrats, setShowCongrats] = useState(false)
   const [claimResult, setClaimResult] = useState({ streak: 0, points: 5 })
   const [claiming, setClaiming] = useState(false)
+  const [redeemingId, setRedeemingId] = useState(null)
+  const [redeemSuccess, setRedeemSuccess] = useState(null)
 
   const totalPoints = totals.balance || 0
   const completedWins = totals.completedWins || 0
@@ -596,6 +598,12 @@ function RewardPage() {
               })()}
             </div>
 
+            {redeemSuccess && (
+              <div className="alert success" style={{ marginBottom: '1rem' }}>
+                ✨ Success! You've redeemed <strong>{redeemSuccess}</strong>. We'll process this reward shortly.
+              </div>
+            )}
+
             <div className="redeem-grid">
               {getFilteredRedeemables().map(({ id, title, description, cost, icon: Icon, iconColor, tag, comingSoon }) => {
                 const isLocked = !comingSoon && totals.balance < cost
@@ -625,11 +633,25 @@ function RewardPage() {
                           <button
                             type="button"
                             className="redeem-btn"
+                            disabled={redeemingId === id}
                             onClick={async () => {
-                              await redeem({ item_id: id, title, cost })
+                              setRedeemingId(id)
+                              try {
+                                const result = await redeem({ item_id: id, title, cost })
+                                if (result.error) {
+                                  alert(`Failed to redeem: ${result.error.message}`)
+                                } else {
+                                  setRedeemSuccess(title)
+                                  setTimeout(() => setRedeemSuccess(null), 2000)
+                                }
+                              } catch (err) {
+                                alert('Failed to redeem reward. Please try again.')
+                              } finally {
+                                setRedeemingId(null)
+                              }
                             }}
                           >
-                            Claim <FaArrowRight size={12} />
+                            {redeemingId === id ? 'Claiming...' : <>Claim <FaArrowRight size={12} /></>}
                           </button>
                         ) : (
                           <button type="button" className="redeem-btn disabled" disabled>
